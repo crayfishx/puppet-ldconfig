@@ -7,6 +7,7 @@
   "source": "https://github.com/crayfishx/puppet-ldconfig",
   "project_page": "https://github.com/crayfishx/puppet-ldconfig",
   "issues_url": "https://github.com/crayfishx/puppet-ldconfig/issues",
+  "tags": [ "ld", "ldconfig", "ld.so.conf", "LD_LIBRARY_PATH" ],
   "dependencies": [
     {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
   ],
