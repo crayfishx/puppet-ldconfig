@@ -3,6 +3,8 @@ define ldconfig::entry (
   Array[Stdlib::Unixpath]   $paths  = [],
 ) {
 
+  include ::ldconfig
+
   file { "${ldconfig::ld_conf_dir}/${name}.conf":
     ensure      => $ensure ? {
       'present' => 'file',
