@@ -1,5 +1,7 @@
 # Copyright 2018 Craig Dunn
 #
+# See README for documentation on class parameters.
+#
 class ldconfig (
   String  $ld_conf_dir   = '/etc/ld.so.conf.d',
   String  $ldconfig_exec = '/sbin/ldconfig',
@@ -17,5 +19,4 @@ class ldconfig (
     command     => $ldconfig_exec,
     refreshonly => true,
   }
- 
 }

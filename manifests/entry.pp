@@ -1,3 +1,6 @@
+# Defined resource type for creating ldconfig entries, see
+# README for documentation on Parameters
+#
 define ldconfig::entry (
   String                    $target = "${name}.conf",
   Enum['present', 'absent'] $ensure = 'present',
@@ -6,11 +9,13 @@ define ldconfig::entry (
 
   include ::ldconfig
 
+  $file_ensure = $ensure ? {
+    'present' => 'file',
+    'absent'  => 'absent',
+  }
+
   file { "${ldconfig::ld_conf_dir}/${target}":
-    ensure      => $ensure ? {
-      'present' => 'file',
-      'absent'  => 'absent',
-    },
+    ensure  => $file_ensure,
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
