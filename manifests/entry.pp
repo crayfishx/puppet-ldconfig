@@ -1,11 +1,12 @@
 define ldconfig::entry (
+  String                    $target = "${name}.conf",
   Enum['present', 'absent'] $ensure = 'present',
   Array[Stdlib::Unixpath]   $paths  = [],
 ) {
 
   include ::ldconfig
 
-  file { "${ldconfig::ld_conf_dir}/${name}.conf":
+  file { "${ldconfig::ld_conf_dir}/${target}":
     ensure      => $ensure ? {
       'present' => 'file',
       'absent'  => 'absent',
